@@ -33,6 +33,11 @@
                         type="text"
                         label="PLG_REDSHOP_LOGIN_FACEBOOK_APP_SECRET"
                 />
+                <field
+                        name="Url_facebook"
+                        type="text"
+                        label="PLG_REDSHOP_LOGIN_FACEBOOK_URL_FACEBOOK"
+                />
                 <field addfieldpath="plugins/redshop_login/facebook/element"
                        name="callback_url"
                        type="callbackurl"

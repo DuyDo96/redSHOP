@@ -58,9 +58,8 @@ class PlgRedshop_LoginFacebook extends JPlugin
         $helper = $fb->getRedirectLoginHelper();
 
         try {
-
             $accessUrl = $this->params->get('Url_facebook', '');
-            $accessToken = $helper->getAccessToken('https://dev.lacaph.com.web1.redhost.vn/index.php?option=com_ajax&group=redshop_login&plugin=fbLoginCallBack&format=raw');
+            $accessToken = $helper->getAccessToken($accessUrl);
         } catch (\Facebook\Exceptions\FacebookResponseException $e) {
             // When Graph returns an error
             $app->enqueueMessage('Graph returned an error: ' . $e->getMessage());
@@ -139,6 +138,7 @@ class PlgRedshop_LoginFacebook extends JPlugin
             [
                 'app_id'                => $this->params->get('app_id', ''),
                 'app_secret'            => $this->params->get('app_secret', ''),
+                'Url_facebook'            => $this->params->get('Url_facebook', ''),
                 'default_graph_version' => 'v2.10',
             ]
         );
